@@ -1,3 +1,11 @@
+:root {
+  --dark-colour: #044887;
+  --light-colour: #087deb;
+  --bright-colour: #f0f8ff;
+  --black-colour: #000000;
+}
+
+
 .weather-body {
   display: flex;
   align-items: stretch;
@@ -9,6 +17,7 @@ nav {
   flex-wrap: wrap;
   flex-direction: column;
   flex: 0 0 auto;
+  width: 15%;
 }
 
 .search-Container {
@@ -32,7 +41,8 @@ header {
 }
 
 .current-forecast {
-  background-color: darkturquoise;
+  background-color: var(--dark-colour);
+  color: var(--bright-colour);
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
@@ -43,11 +53,13 @@ header {
 
 #submitBtn {
   display: flex;
-  width: 35%;
+  justify-content: center;
+  width: 100%;
 }
 
 .future-forecast {
-  background-color: darkturquoise;
+  background-color: var(--dark-colour);
+  color: var(--bright-colour);
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -73,7 +85,7 @@ header {
 }
 
 button {
-  background-color: darkturquoise;
+  background-color: var(--dark-colour);
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;

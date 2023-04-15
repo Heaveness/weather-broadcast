@@ -124,8 +124,7 @@ $(document).ready(function () {
             if (i === 9){
                 break;
             }
-            if (/^[a-zA-Z\s]+$/.test(storedCity[i])) {
-                if(!addedCities.includes(storedCity[i])){
+            if(!addedCities.includes(storedCity[i])){
                 addedCities.push(storedCity[i]);
                 const historyBtn = document.createElement("button");
                 historyBtn.setAttribute("id", "history");
@@ -139,7 +138,6 @@ $(document).ready(function () {
                     });
                 })(i);
             }
-            }
         }
     }
         
@@ -148,20 +146,32 @@ $(document).ready(function () {
         event.preventDefault();
 
         var searchedCity = $("#search-text").val().trim().toUpperCase();
-        searchedHistory.push(searchedCity);
+
+        var validCityNamePattern = /^[a-zA-Z\s]+$/;
 
         if (!isNaN(searchedCity)) {
-            alert("Please enter a valid city name.");
+            document.getElementById("warning-text").innerHTML = "Please enter a valid city name.";
             return;
         }
         else if (searchedCity === "") {
-            alert("Please enter a city name.");
+            document.getElementById("warning-text").innerHTML = "Please enter a city name.";
             return;
         } 
-        else if (!/^[a-zA-Z]*$/.test(searchedCity)){
-            alert("Please enter a valid city name.");
+        else if (!validCityNamePattern.test(searchedCity)){
+            document.getElementById("warning-text").innerHTML = "Please enter a valid city name.";
             return;
-        } else {
+        }
+        else if (searchedCity.length < 2){
+            document.getElementById("warning-text").innerHTML = "Please enter a valid city name.";
+            return;
+        }
+        else if (storedCity.includes(searchedCity)) {
+            document.getElementById("warning-text").innerHTML = "City already exists in search history.";
+            receiveData(searchedCity);
+            fiveDayForecast(searchedCity);
+        }
+        else {
+            searchedHistory.push(searchedCity);
             localStorage.setItem("city", JSON.stringify(searchedHistory));
             receiveData(searchedCity);
             fiveDayForecast(searchedCity);
