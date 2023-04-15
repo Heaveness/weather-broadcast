@@ -1,13 +1,119 @@
-main {
+.weather-body {
   display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex: 0 0 auto;
+}
+
+.search-Container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.search-history-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.futureFC {
+  display: flex;
+}
+
+header {
+  width: 100%;
+}
+
+.current-forecast {
+  background-color: darkturquoise;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  width: 132%;
+  padding: 10px;
+  margin: 30px 0;
+}
+
+#submitBtn {
+  display: flex;
+  width: 35%;
+}
+
+.future-forecast {
+  background-color: darkturquoise;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex: 0 0 275px;
+  padding: 10px;
+  margin-right: 54px;
+}
+
+#curIcon {
+  width: 50px;
+  height: 50px;
+  visibility: hidden;
+}
+
+.futIcon1,
+.futIcon2,
+.futIcon3,
+.futIcon4,
+.futIcon5 {
+  width: 50px;
+  height: 50px;
+  visibility: hidden;
+}
+
+button {
+  background-color: darkturquoise;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none; 
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.button:hover,
+.button:focus {
+  background-color: darkturquoise;
+}
+
+.history-contain {
+  display: flex;
+  flex-direction: column;
 }
 
 /*CSS Property for the clear-history class element.*/
 #clear-history {
-  background-color: #06aed5;
+  background-color: red;
   font-weight: bold;
   opacity: 0.7;
   transition: 0.2s;
+  padding: 20px;
+  width: 100%;
 }
 
 /*CSS Property for the clear-history class when mouse hovered.*/

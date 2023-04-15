@@ -4,8 +4,6 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./assets/css/reset.css" />
-        <link rel="stylesheet" href="./assets/css/style.css" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
             rel="stylesheet"    
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
@@ -22,9 +20,9 @@
         <title>Weather Broadcast Network</title>
     </head>
 
-    <body>
+    <body class="weather-body">
         <header>
-            <section class="p-3 mb-5 text-center text-white bg-dark border-bottom border-primary">
+            <section class="p-3 mb-5 text-center text-white bg-dark">
                 <h1 class="display-1">Weather Dashboard</h1>
                 <p id="currentDay" class="p-1">
                 <u>Current Time &amp; Date: </u><br />
@@ -34,13 +32,13 @@
         </header>
 
         <nav>
-            <section class="col-10 search-Container">
+            <section class="col-10 col-md-11 search-Container">
                 <h2>Search for a City:</h2>
                 <input type="text" id="search-text" name="search-text" placeholder="San Diego"><br>
-                <input type="submit" id="submit" value="Search" class="btn btn-primary">
+                <input type="submit" id="submitBtn" value="Search" class="btn btn-primary">
             </section>
 
-            <section class="col-10">
+            <section class="col-10 col-md-11 search-history-container">
                 <h3>Search History:</h3>
                 <!--Clear all schedule button to open modal screen.-->
                 <button class="modalBtn col-1 text-center rounded" id="clear-history">Clear All History?</button>
@@ -53,33 +51,70 @@
                         <button class="confirmNoBtn col-2 p-3 m-2 text-center rounded">No</button>
                     </div>
                 </div>
-                <div id="history-container">
+                <div id="history-container" class="history-contain">
                 </div>
             </section>
         </nav>
 
-        <main class="col-12 p-10 m-2">
-            <section class="current-forecast">
-                <h2 class="current-1"></h2>
-                <p>Temp: <span class="temp"></span></p>
-                <p>Wind: <span class="wind"></span></p>
-                <p>Humidity: <span class="humid"></span></p>
+        <main>
+        <div class="currentFC">
+            <section class="border rounded current-forecast col-md-14">
+                <h2 id="current-1"> </h2><span class="h2" id="current-day"></span><img id="curIcon"></img>
+                <p>Temp: <span id="curTemp"> </span></p>
+                <p>Wind: <span id="curWind"> </span></p>
+                <p>Humidity: <span id="curHumid"> </span></p>
+            </section>
+        </div>
+        
+        <div class="futureFC">  
+            <section class="future-forecast border rounded">
+                <h2 class="future1"></h2><img class="futIcon1"></img>
+                <p>Temp: <span class="futTemp1"></span></p>
+                <p>Wind: <span class="futWind1"></span></p>
+                <p>Humidity: <span class="futHumid1"></span></p>
             </section>
 
-            <section class="future-forecast">
-                <h2 class="future-1"></h2>
-                <p>Temp: <span class="temp"></span></p>
-                <p>Wind: <span class="wind"></span></p>
-                <p>Humidity: <span class="humid"></span></p>
+            <section class="future-forecast border rounded">
+                <h2 class="future2"></h2><img class="futIcon2"></img>
+                <p>Temp: <span class="futTemp2"></span></p>
+                <p>Wind: <span class="futWind2"></span></p>
+                <p>Humidity: <span class="futHumid2"></span></p>
             </section>
 
+            <section class="future-forecast border rounded">
+                <h2 class="future3"></h2><img class="futIcon3"></img>
+                <p>Temp: <span class="futTemp3"></span></p>
+                <p>Wind: <span class="futWind3"></span></p>
+                <p>Humidity: <span class="futHumid3"></span></p>
+            </section>
+
+            <section class="future-forecast border rounded">
+                <h2 class="future4"></h2><img class="futIcon4"></img>
+                <p>Temp: <span class="futTemp4"></span></p>
+                <p>Wind: <span class="futWind4"></span></p>
+                <p>Humidity: <span class="futHumid4"></span></p>
+            </section>
+
+            <section class="future-forecast border rounded">
+                <h2 class="future5"></h2><img class="futIcon5"></img>
+                <p>Temp: <span class="futTemp5"></span></p>
+                <p>Wind: <span class="futWind5"></span></p>
+                <p>Humidity: <span class="futHumid5"></span></p>
+            </section>
+        </div> 
         </main>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
-            crossorigin="anonymous">
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+            integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+            crossorigin="anonymous"
+        ></script>
         <script src="assets/js/script.js"></script>
+        
     </body>
 </html>
