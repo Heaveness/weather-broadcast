@@ -138,14 +138,21 @@ $(document).ready(function () {
             })(i);
         }
     }
-        
-    var searchedHistory = storedCity;
     $("#submitBtn").click(function (event) {
         event.preventDefault();
+        searchCity();
+    });
+    
+    $("#search-text").on("keydown", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            searchCity();
+        }
+    });
 
+    var searchedHistory = storedCity;
+    function searchCity() {
         var searchedCity = $("#search-text").val().trim().toUpperCase();
-
-        var validCityNamePattern = /^[a-zA-Z\s]+$/;
 
         var apiKey = "9fd400a4835f3cb9983a527ae1c32bd9";
         var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + searchedCity + "&type=like&sort=population&units=metric&appid=" + apiKey;
@@ -163,6 +170,7 @@ $(document).ready(function () {
                     fiveDayForecast(searchedCity);
                 }
                 else {
+                    document.getElementById("warning-text").innerHTML = "";
                     searchedHistory.push(searchedCity);
                     localStorage.setItem("city", JSON.stringify(searchedHistory));
                     receiveData(searchedCity);
@@ -173,7 +181,7 @@ $(document).ready(function () {
             .catch((error) => {
                 console.error("Error:", error);
             })
-    })
+    }
 
 
     // Onclick function when the user clicks the button, opens the modal.
