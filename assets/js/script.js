@@ -183,7 +183,6 @@ $(document).ready(function () {
             })
     }
 
-
     // Onclick function when the user clicks the button, opens the modal.
     btn.onclick = function () {
         modal.style.display = "block";

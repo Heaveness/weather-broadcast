@@ -24,12 +24,14 @@ nav {
   display: flex;
   flex-direction: column;
   padding: 20px;
+  border-bottom: solid 2px #044887;
 }
 
 .search-history-container {
   display: flex;
   flex-direction: column;
   padding: 20px;
+  border-bottom: solid 2px #044887;
 }
 
 .futureFC {
