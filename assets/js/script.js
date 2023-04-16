@@ -124,20 +124,18 @@ $(document).ready(function () {
             if (i === 9){
                 break;
             }
-            if(!addedCities.includes(storedCity[i])){
-                addedCities.push(storedCity[i]);
-                const historyBtn = document.createElement("button");
-                historyBtn.setAttribute("id", "history");
-                historyBtn.innerText = storedCity[i];
-                $("#history-container").append(historyBtn);
+            addedCities.push(storedCity[i]);
+            const historyBtn = document.createElement("button");
+            historyBtn.setAttribute("id", "history");
+            historyBtn.innerText = storedCity[i];
+            $("#history-container").append(historyBtn);
 
-                (function (i) {
-                    historyBtn.addEventListener("click", function () {
-                        receiveData(storedCity[i]); // Pass the city at the captured index as a parameter to receiveData()
-                        fiveDayForecast(storedCity[i]);
-                    });
-                })(i);
-            }
+            (function (i) {
+                historyBtn.addEventListener("click", function () {
+                    receiveData(storedCity[i]); // Pass the city at the captured index as a parameter to receiveData()
+                    fiveDayForecast(storedCity[i]);
+                });
+            })(i);
         }
     }
         
@@ -149,35 +147,34 @@ $(document).ready(function () {
 
         var validCityNamePattern = /^[a-zA-Z\s]+$/;
 
-        if (!isNaN(searchedCity)) {
-            document.getElementById("warning-text").innerHTML = "Please enter a valid city name.";
-            return;
-        }
-        else if (searchedCity === "") {
-            document.getElementById("warning-text").innerHTML = "Please enter a city name.";
-            return;
-        } 
-        else if (!validCityNamePattern.test(searchedCity)){
-            document.getElementById("warning-text").innerHTML = "Please enter a valid city name.";
-            return;
-        }
-        else if (searchedCity.length < 2){
-            document.getElementById("warning-text").innerHTML = "Please enter a valid city name.";
-            return;
-        }
-        else if (storedCity.includes(searchedCity)) {
-            document.getElementById("warning-text").innerHTML = "City already exists in search history.";
-            receiveData(searchedCity);
-            fiveDayForecast(searchedCity);
-        }
-        else {
-            searchedHistory.push(searchedCity);
-            localStorage.setItem("city", JSON.stringify(searchedHistory));
-            receiveData(searchedCity);
-            fiveDayForecast(searchedCity);
-            searchHistory();
-        }
-    });
+        var apiKey = "9fd400a4835f3cb9983a527ae1c32bd9";
+        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + searchedCity + "&type=like&sort=population&units=metric&appid=" + apiKey;
+
+        fetch(queryURL)
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.cod === "404"){
+                    document.getElementById("warning-text").innerHTML = "City not found. Please enter a valid city name.";
+                    return;
+                }
+                else if (storedCity.includes(searchedCity)) {
+                    document.getElementById("warning-text").innerHTML = "City already exists in search history.";
+                    receiveData(searchedCity);
+                    fiveDayForecast(searchedCity);
+                }
+                else {
+                    searchedHistory.push(searchedCity);
+                    localStorage.setItem("city", JSON.stringify(searchedHistory));
+                    receiveData(searchedCity);
+                    fiveDayForecast(searchedCity);
+                    searchHistory();
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            })
+    })
+
 
     // Onclick function when the user clicks the button, opens the modal.
     btn.onclick = function () {
