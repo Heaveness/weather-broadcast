@@ -1,3 +1,4 @@
+/* Root CSS variables for colours.*/
 :root {
   --dark-colour: #044887;
   --light-colour: #087deb;
@@ -7,13 +8,19 @@
   --confirm-colour: green;
 }
 
-
+/* CSS Properties for .*/
 .weather-body {
   display: flex;
   align-items: stretch;
   flex-wrap: wrap;
 }
 
+/* CSS Properties for header element.*/
+header {
+  width: 100%;
+}
+
+/* CSS Properties for the nav element code block.*/
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -22,6 +29,7 @@ nav {
   width: 15%;
 }
 
+/* CSS Properties for search container code block.*/
 .search-Container {
   display: flex;
   flex-direction: column;
@@ -29,6 +37,14 @@ nav {
   border-bottom: solid 2px var(--dark-colour);
 }
 
+/* CSS Properties for search button.*/
+#submitBtn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* CSS Properties for search history code block.*/
 .search-history-container {
   display: flex;
   flex-direction: column;
@@ -36,14 +52,7 @@ nav {
   border-bottom: solid 2px var(--dark-colour);
 }
 
-.futureFC {
-  display: flex;
-}
-
-header {
-  width: 100%;
-}
-
+/* CSS Properties for current forecast box.*/
 .current-forecast {
   background-color: var(--dark-colour);
   color: var(--bright-colour);
@@ -55,12 +64,12 @@ header {
   margin: 30px 0;
 }
 
-#submitBtn {
+/* CSS Properties for futureFC class within .*/
+.futureFC {
   display: flex;
-  justify-content: center;
-  width: 100%;
 }
 
+/* CSS Properties for 5-day forecast box.*/
 .future-forecast {
   background-color: var(--dark-colour);
   color: var(--bright-colour);
@@ -72,12 +81,14 @@ header {
   margin-right: 54px;
 }
 
+/* CSS Properties for current weather condition icon.*/
 #curIcon {
   width: 50px;
   height: 50px;
   visibility: hidden;
 }
 
+/* CSS Properties for 5-day forecast weather condition icons.*/
 .futIcon1,
 .futIcon2,
 .futIcon3,
@@ -88,6 +99,7 @@ header {
   visibility: hidden;
 }
 
+/* CSS Properties for search history buttons.*/
 #history {
   background-color: var(--dark-colour);
   border-radius: 8px;
@@ -113,6 +125,7 @@ header {
   opacity: 0.95;
 }
 
+/* CSS Properties for search history buttons when hovered or focused.*/
 #history:hover,
 #history:focus {
   background-color: var(--light-colour);
@@ -120,6 +133,7 @@ header {
   opacity: 1.0;
 }
 
+/* CSS Properties for searched history container element where buttons are housed.*/
 .history-contain {
   display: flex;
   flex-direction: column;
