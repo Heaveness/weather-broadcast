@@ -11,7 +11,7 @@ It even saves your search history too for a quick and easy access. Even clear it
 
 ## Previews
 **Website:** <br>
-![Website Preview Image.]() <br>
+![Website Preview Image.](assets/images/weather-dashboard-preview.png) <br>
 
 ## Credits
 

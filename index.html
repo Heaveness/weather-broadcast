@@ -4,26 +4,35 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Bootstrap CSS API for HTML usage.-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
             rel="stylesheet"    
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
             crossorigin="anonymous"
         />
+        <!--Fontawesome CSS API for HTML usage.-->
         <link
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
             integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
             crossorigin="anonymous"
         />
+        <!--Personal CSS file to reset HTML design.-->
         <link rel="stylesheet" href="./assets/css/reset.css">
+        <!--Personal CSS file for HTML usage.-->
         <link rel="stylesheet" href="./assets/css/style.css">
         <title>Weather Broadcast Network</title>
     </head>
 
+    <!--Body element that houses the main code block.-->
     <body class="weather-body">
+        <!--Header element.-->
         <header>
+            <!--Section code block that includes top content.-->
             <section class="p-3 mb-5 text-center text-white bg-dark">
+                <!--Website title.-->
                 <h1 class="display-1">Weather Dashboard</h1>
+                <!--Gives current time & day from Day.js API.-->
                 <p id="currentDay" class="p-1">
                 <u>Current Time &amp; Date: </u><br />
                 <span id="day-display"></span>
@@ -31,20 +40,26 @@
             </section>
         </header>
 
+        <!--Nav element that houses search & history features.-->
         <nav>
+            <!--Section code block that includes the search bar feature.-->
             <section class="col-10 col-md-11 search-Container">
                 <h2>City Search:</h2>
+                <!--Input textbox for user to input a city.-->
                 <input type="text" id="search-text" name="search-text" placeholder="Input city name here...">
+                <!--Warning text for invalid city names.-->
                 <p class="warning-text text-danger fw-bold" id="warning-text"></p>
+                <!--Button to submit the city for searching.-->
                 <input type="submit" id="submitBtn" value="Search" class="btn btn-primary">
             </section>
 
+            <!--Section code block that includes the search history feature.-->
             <section class="col-10 col-md-11 search-history-container">
                 <h3>Search History:</h3>
-                <!--Clear all schedule button to open modal screen.-->
+                <!--Clear all history button to open modal screen.-->
                 <button class="modalBtn col-1 text-center rounded" id="clear-history">Clear All History?</button>
                 <div id="myModal" class="modal">
-                    <!--Modal box to ask user to confirm the schedule clearing.-->
+                    <!--Modal box to ask user to confirm the history clearing.-->
                     <div class="modal-content bg-dark text-white">
                         <h2 class="modalText">Are you sure?</h2>
                         <!--Confirm Yes or No button within modal box.-->
@@ -52,70 +67,104 @@
                         <button class="confirmNoBtn col-2 p-3 m-2 text-center rounded">No</button>
                     </div>
                 </div>
+                <!--The container that outputs buttons from search history.-->
                 <div id="history-container" class="history-contain">
                 </div>
             </section>
         </nav>
 
+        <!--Main code block that houses the forecast content.-->
         <main>
-        <div class="currentFC">
-            <section class="border rounded current-forecast col-md-14">
-                <h2 id="current-1"> </h2><span class="h2" id="current-day"></span><img id="curIcon"></img>
-                <p>Temp: <span id="curTemp"> </span></p>
-                <p>Wind: <span id="curWind"> </span></p>
-                <p>Humidity: <span id="curHumid"> </span></p>
-            </section>
-        </div>
+            <!--Current Forecast title.-->
+            <div class="h2">Current Forecast:</div>
+            <!--Current forecast container for output.-->
+            <div class="currentFC">
+                <section class="border rounded current-forecast col-md-14">
+                    <!--What city is searched, its current day, and weather condition icon output.-->
+                    <h2 id="current-1"> </h2><span class="h2" id="current-day"></span><img id="curIcon"></img>
+                    <!--Current temperature.-->
+                    <p>Temp: <span id="curTemp"> </span></p>
+                    <!--Current wind speed.-->
+                    <p>Wind: <span id="curWind"> </span></p>
+                    <!--Current humidity.-->
+                    <p>Humidity: <span id="curHumid"> </span></p>
+                </section>
+            </div>
         
-        <div class="futureFC">  
-            <section class="future-forecast border rounded">
-                <h2 class="future1"></h2><img class="futIcon1"></img>
-                <p>Temp: <span class="futTemp1"></span></p>
-                <p>Wind: <span class="futWind1"></span></p>
-                <p>Humidity: <span class="futHumid1"></span></p>
-            </section>
+            <!--Five day forecast title.-->
+            <div class="h2">5-Day Forecast:</div>
+            <!--Five day forecast container for output.-->
+            <div class="futureFC">
+                <section class="future-forecast border rounded">
+                    <!--Search city's 2nd day(Tomorrow) date then its weather condition icon.-->
+                    <h2 class="future1"></h2><img class="futIcon1"></img>
+                    <!--2nd day's temperature.-->
+                    <p>Temp: <span class="futTemp1"></span></p>
+                    <!--2nd day's wind speed.-->
+                    <p>Wind: <span class="futWind1"></span></p>
+                    <!--2nd day's humidity.-->
+                    <p>Humidity: <span class="futHumid1"></span></p>
+                </section>
+                
+                <section class="future-forecast border rounded">
+                    <!--Search city's 3rd day(Day after tomorrow) date then its weather condition icon.-->
+                    <h2 class="future2"></h2><img class="futIcon2"></img>
+                    <!--3rd day's temperature.-->
+                    <p>Temp: <span class="futTemp2"></span></p>
+                    <!--3rd day's wind speed.-->
+                    <p>Wind: <span class="futWind2"></span></p>
+                    <!--3rd day's humidity.-->
+                    <p>Humidity: <span class="futHumid2"></span></p>
+                </section>
 
-            <section class="future-forecast border rounded">
-                <h2 class="future2"></h2><img class="futIcon2"></img>
-                <p>Temp: <span class="futTemp2"></span></p>
-                <p>Wind: <span class="futWind2"></span></p>
-                <p>Humidity: <span class="futHumid2"></span></p>
-            </section>
+                <section class="future-forecast border rounded">
+                    <!--Search city's 4th day(2 days after tomorrow) date then its weather condition icon.-->
+                    <h2 class="future3"></h2><img class="futIcon3"></img>
+                    <!--4th day's temperature.-->
+                    <p>Temp: <span class="futTemp3"></span></p>
+                    <!--4th day's wind speed.-->
+                    <p>Wind: <span class="futWind3"></span></p>
+                    <!--4th day's humidity.-->
+                    <p>Humidity: <span class="futHumid3"></span></p>
+                </section>
 
-            <section class="future-forecast border rounded">
-                <h2 class="future3"></h2><img class="futIcon3"></img>
-                <p>Temp: <span class="futTemp3"></span></p>
-                <p>Wind: <span class="futWind3"></span></p>
-                <p>Humidity: <span class="futHumid3"></span></p>
-            </section>
+                <section class="future-forecast border rounded">
+                    <!--Search city's 5th day(3 days after tomorrow) date then its weather condition icon.-->
+                    <h2 class="future4"></h2><img class="futIcon4"></img>
+                    <!--5th day's temperature.-->
+                    <p>Temp: <span class="futTemp4"></span></p>
+                    <!--5th day's wind speed.-->
+                    <p>Wind: <span class="futWind4"></span></p>
+                    <!--5th day's humidity.-->
+                    <p>Humidity: <span class="futHumid4"></span></p>
+                </section>
 
-            <section class="future-forecast border rounded">
-                <h2 class="future4"></h2><img class="futIcon4"></img>
-                <p>Temp: <span class="futTemp4"></span></p>
-                <p>Wind: <span class="futWind4"></span></p>
-                <p>Humidity: <span class="futHumid4"></span></p>
-            </section>
-
-            <section class="future-forecast border rounded">
-                <h2 class="future5"></h2><img class="futIcon5"></img>
-                <p>Temp: <span class="futTemp5"></span></p>
-                <p>Wind: <span class="futWind5"></span></p>
-                <p>Humidity: <span class="futHumid5"></span></p>
-            </section>
-        </div> 
+                <section class="future-forecast border rounded">
+                    <!--Search city's 6th day(4 days after tomorrow) date then its weather condition icon.-->
+                    <h2 class="future5"></h2><img class="futIcon5"></img>
+                    <!--6th day's temperature.-->
+                    <p>Temp: <span class="futTemp5"></span></p>
+                    <!--6th day's wind speed.-->
+                    <p>Wind: <span class="futWind5"></span></p>
+                    <!--6th day's humidity.-->
+                    <p>Humidity: <span class="futHumid5"></span></p>
+                </section>
+            </div> 
         </main>
+        <!--Bootstrap bundle API for Javascript usage.-->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
             crossorigin="anonymous"
         ></script>
+        <!--jQuery API for Javascript usage.-->
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
             integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
             crossorigin="anonymous"
         ></script>
+        <!--Personal javascript usage.-->
         <script src="assets/js/script.js"></script>
-        
     </body>
 </html>
