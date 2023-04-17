@@ -212,6 +212,11 @@ $(document).ready(function () {
                     document.getElementById("warning-text").innerHTML = "City not found. Please enter a valid city name.";
                     return;
                 }
+                // Else if statement if user doesn't input anything but presses submit or enter.
+                else if (searchedCity === "") {
+                    document.getElementById("warning-text").innerHTML = "Please enter a city name...";
+                    return;
+                } 
                 // Else if statement for searched city already existed in search history to prevent button duplication, but still runs respective function.
                 else if (storedCity.includes(searchedCity)) {
                     document.getElementById("warning-text").innerHTML = "City already exists in search history.";

@@ -3,6 +3,8 @@
   --light-colour: #087deb;
   --bright-colour: #f0f8ff;
   --black-colour: #000000;
+  --warning-colour: red;
+  --confirm-colour: green;
 }
 
 
@@ -24,14 +26,14 @@ nav {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  border-bottom: solid 2px #044887;
+  border-bottom: solid 2px var(--dark-colour);
 }
 
 .search-history-container {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  border-bottom: solid 2px #044887;
+  border-bottom: solid 2px var(--dark-colour);
 }
 
 .futureFC {
@@ -86,12 +88,12 @@ header {
   visibility: hidden;
 }
 
-button {
+#history {
   background-color: var(--dark-colour);
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: var(--bright-colour);
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
@@ -104,15 +106,18 @@ button {
   position: relative;
   text-align: center;
   text-decoration: none;
-  transition: color 100ms;
+  transition: 0.2s;
   vertical-align: baseline;
   user-select: none;
   touch-action: manipulation;
+  opacity: 0.95;
 }
 
-.button:hover,
-.button:focus {
-  background-color: darkturquoise;
+#history:hover,
+#history:focus {
+  background-color: var(--light-colour);
+  transition: 0.2s;
+  opacity: 1.0;
 }
 
 .history-contain {
@@ -122,12 +127,13 @@ button {
 
 /*CSS Property for the clear-history class element.*/
 #clear-history {
-  background-color: red;
+  background-color: var(--warning-colour);
   font-weight: bold;
-  opacity: 0.7;
+  opacity: 0.8;
   transition: 0.2s;
   padding: 20px;
   width: 100%;
+  border: 1px solid var(--warning-colour);
 }
 
 /*CSS Property for the clear-history class when mouse hovered.*/
@@ -158,7 +164,7 @@ button {
   flex-direction: row;
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid var(--warning-colour);
   width: 30%;
 }
 
@@ -166,7 +172,7 @@ button {
 .confirmYesBtn {
   width: 100px;
   display: inline;
-  background-color: green;
+  background-color: var(--confirm-colour);
   font-weight: bold;
   color: white;
   opacity: 0.7;
@@ -177,14 +183,14 @@ button {
 .confirmYesBtn:hover {
   opacity: 1;
   transition: 0.2s;
-  color: black;
+  color: var(--black-colour);
 }
 
 /*CSS Property for the confirm No button within Modal.*/
 .confirmNoBtn {
   width: 100px;
   display: inline;
-  background-color: red;
+  background-color: var(--warning-colour);
   font-weight: bold;
   color: white;
   opacity: 0.7;
@@ -195,5 +201,5 @@ button {
 .confirmNoBtn:hover {
   opacity: 1;
   transition: 0.2s;
-  color: black;
+  color: var(--black-colour);
 }
