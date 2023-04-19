@@ -24,7 +24,7 @@ $(document).ready(function () {
     function receiveData(city) {
         // OpenWeatherMap API key and URL.
         var apiKey = "9fd400a4835f3cb9983a527ae1c32bd9";
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&type=like&sort=population&units=metric&appid=" + apiKey;
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&type=like&sort=population&units=metric&appid=" + apiKey;
 
         // Fetch method to call the API.
         fetch(queryURL)
@@ -37,7 +37,7 @@ $(document).ready(function () {
             const windSpeed = (data.wind.speed * 3.6).toFixed(2) + "km/h";
             const humidity = data.main.humidity + "%";
             const weatherIcon = data.weather[0].icon;
-            const iconUrl = "http://openweathermap.org/img/w/" + weatherIcon + ".png";
+            const iconUrl = "https://openweathermap.org/img/w/" + weatherIcon + ".png";
             
             // Displays above variables into respective HTML elements.
             document.getElementById("current-1").innerHTML = city;
@@ -201,7 +201,7 @@ $(document).ready(function () {
 
         // API key and url.
         var apiKey = "9fd400a4835f3cb9983a527ae1c32bd9";
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + searchedCity + "&type=like&sort=population&units=metric&appid=" + apiKey;
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchedCity + "&type=like&sort=population&units=metric&appid=" + apiKey;
 
         // Fetch method for checking valid city names to prevent issues.
         fetch(queryURL)
